@@ -6,42 +6,112 @@ namespace Algebra.HelloWorld
     {
         static void Main(string[] args)
         {
-            //byte ocjene = 5;
-            //byte ocjena2 = -4;
+            byte ocjena = 4;
 
-            //short ocjene3 = -255;
-            //ushort ocjene4 = -255;
+            if (ocjena == 1)
+            {
+                Console.WriteLine("Ocjena nije zadovoljavajuća.");
+            }
+            else if (ocjena == 2)
+            {
+                Console.WriteLine("Ocjena je dovoljan.");
+            }
+            else if (ocjena == 3)
+            {
+                Console.WriteLine("Ocjena je dobar.");
+            }
+            else if (ocjena == 4)
+            {
+                Console.WriteLine("Ocjena je vrlo dobar.");
+            }
+            else // ocjena == 5
+            {
+                Console.WriteLine("Ocjena je odličan.");
+            }
 
-            //int rgb = 0x343433;
-            //byte rgb2 = 0b_0010_1111;
+            double prosjek = 2.5;
 
-            bool programiranjeJeZabavno = true;
-            bool vaniPadaKisa = false;
+            if (prosjek >= 2.5 && prosjek < 3.5)
+            {
+                // ocjena 3
+                if (prosjek >= 2.5 && prosjek < 3.0)
+                {
+                    Console.WriteLine("Nešto niža trojka.");
 
-            Console.WriteLine(programiranjeJeZabavno && vaniPadaKisa);
-            Console.WriteLine(programiranjeJeZabavno || vaniPadaKisa);
-            Console.WriteLine(vaniPadaKisa);
-            Console.WriteLine(!vaniPadaKisa);
+                    if (prosjek == 2.5)
+                    {
+                        Console.WriteLine("Svaka čast!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Jaka trojka.");
+                }
+            }
 
-            int a = 10;
-            int b = 20;
+            if (prosjek == 2.5)
+            {
+                Console.WriteLine("Svaka čast!");
+            } 
+            else if (prosjek < 3.0)
+            {
+                Console.WriteLine("Nešto niža trojka.");
+            }
+            else if (prosjek < 3.5)
+            {
+                Console.WriteLine("Jaka trojka.");
+            }
 
-            Console.WriteLine(a < b);
-            Console.WriteLine(a > b);
-            Console.WriteLine(a <= b);
-            Console.WriteLine(a >= b);
-            Console.WriteLine(a == b);
-            Console.WriteLine(a != b);
+            bool odlikas;
 
-            Console.WriteLine(a < b && b == 0);
+            // normalni oblik
 
-            string ime = "Pero";
+            if (prosjek >= 4.5)
+            {
+                odlikas = true;
+            }
+            else
+            {
+                odlikas = false;
+            }
 
-            Console.WriteLine(ime == "Mato");
-            Console.WriteLine(ime != "Ivica");
+            // kondenzirani oblik
 
-            string pwd = "";
-            Console.WriteLine(ime == "pero@algebra.hr" && pwd == "pero123");
+            if (prosjek >= 4.5)
+                odlikas = true;
+            else
+                odlikas = false;
+
+            if (odlikas)
+                odlikas = true;
+
+            // jednolinijski oblik
+
+            if (odlikas) odlikas = true;
+
+            odlikas = (prosjek >= 4.5) ? true : false;
+
+            odlikas = (prosjek >= 4.5);
+
+            string rezultat = (prosjek >= 4.5) ? "Odlikaš" : "Nije odlikaš";
+
+            var x = (1 == 2) && (1 > 3) ? (2 == 3) ? (23) : 2323 : 23;
+
+            // optimirano
+
+            switch (ocjena)
+            {
+                case 1:
+                    Console.WriteLine("Ocjena nije zadovoljavajuća."); break;
+                case 2:
+                    Console.WriteLine("Ocjena je dovoljan."); break;
+                case 3:
+                    Console.WriteLine("Ocjena je dobar."); break;
+                case 4:
+                    Console.WriteLine("Ocjena je vrlo dobar."); break;
+                default:
+                    Console.WriteLine("Ocjena je odličan."); break;
+            }
 
             Console.ReadKey();
         }
