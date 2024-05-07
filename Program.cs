@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Algebra.HelloWorld
 {
@@ -6,112 +7,70 @@ namespace Algebra.HelloWorld
     {
         static void Main(string[] args)
         {
-            byte ocjena = 4;
+            string rijec = " Algebra  ";
 
-            if (ocjena == 1)
-            {
-                Console.WriteLine("Ocjena nije zadovoljavajuća.");
-            }
-            else if (ocjena == 2)
-            {
-                Console.WriteLine("Ocjena je dovoljan.");
-            }
-            else if (ocjena == 3)
-            {
-                Console.WriteLine("Ocjena je dobar.");
-            }
-            else if (ocjena == 4)
-            {
-                Console.WriteLine("Ocjena je vrlo dobar.");
-            }
-            else // ocjena == 5
-            {
-                Console.WriteLine("Ocjena je odličan.");
-            }
+            Console.WriteLine(rijec);
 
-            double prosjek = 2.5;
+            // operacije/metode nad varijablom:
 
-            if (prosjek >= 2.5 && prosjek < 3.5)
-            {
-                // ocjena 3
-                if (prosjek >= 2.5 && prosjek < 3.0)
-                {
-                    Console.WriteLine("Nešto niža trojka.");
+            Console.WriteLine(rijec.ToLower());
+            Console.WriteLine(rijec.ToUpper());
+            Console.WriteLine(rijec.TrimStart(' '));
+            Console.WriteLine(rijec.TrimEnd(' '));
+            Console.WriteLine(rijec.Trim());
 
-                    if (prosjek == 2.5)
-                    {
-                        Console.WriteLine("Svaka čast!");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Jaka trojka.");
-                }
-            }
+            // svojstva varijable:
+            
+            Console.WriteLine(rijec.Length);
+            Console.WriteLine(rijec.TrimStart(' ').Length);
+            Console.WriteLine(rijec.TrimEnd(' ').Length);
+            Console.WriteLine(rijec.Trim().Length);
 
-            if (prosjek == 2.5)
-            {
-                Console.WriteLine("Svaka čast!");
-            } 
-            else if (prosjek < 3.0)
-            {
-                Console.WriteLine("Nešto niža trojka.");
-            }
-            else if (prosjek < 3.5)
-            {
-                Console.WriteLine("Jaka trojka.");
-            }
+            char a = 'a';
+            char l = 'l';
+            char g = 'g';
+            char e = 'e';
+            char b = 'b';
+            char r = 'r';
 
-            bool odlikas;
+            Console.WriteLine("" + a + l + g + e + b + r + a);
+            Console.WriteLine(string.Concat(a, l, g, e, b, r, a));
 
-            // normalni oblik
+            // escape characters: \n \\ \" \'
+            Console.WriteLine("Ovo je neki,\n teks \\ t u \"navodnicima\" !?");
 
-            if (prosjek >= 4.5)
-            {
-                odlikas = true;
-            }
-            else
-            {
-                odlikas = false;
-            }
+            int broj = 1024;
+            Console.WriteLine(broj);
+            Console.WriteLine(broj.ToString());
 
-            // kondenzirani oblik
+            Convert.ToString(broj);
+            Int32.Parse(broj.ToString());
 
-            if (prosjek >= 4.5)
-                odlikas = true;
-            else
-                odlikas = false;
+            Console.WriteLine(a + l + g + e + b + r + a);
+            var kod = char.GetNumericValue(a);
 
-            if (odlikas)
-                odlikas = true;
+            // string je niz znakova:
 
-            // jednolinijski oblik
+            string jelo = "Lasagna";
+            Console.WriteLine(jelo.First());
+            Console.WriteLine(jelo.Last());
+            Console.WriteLine(jelo.Substring(1));
+            Console.WriteLine(jelo.Substring(2, 3));
+            Console.WriteLine(jelo.IndexOf('n'));
+            Console.WriteLine(jelo.IndexOf("gn"));
+            Console.WriteLine(jelo.IndexOf('ž'));
 
-            if (odlikas) odlikas = true;
+            string recenica = "Jedna obična rečenica";
+            string[] rijeci = recenica.Split(' ');
 
-            odlikas = (prosjek >= 4.5) ? true : false;
+            string red = "1234;Pero;Perić;ulica;14"; // CSV
 
-            odlikas = (prosjek >= 4.5);
+            Console.WriteLine(red.Replace("Pero", "Marko"));
 
-            string rezultat = (prosjek >= 4.5) ? "Odlikaš" : "Nije odlikaš";
+            var polja = red.Split(';');
+            Console.WriteLine(red.Split(';').Last());
 
-            var x = (1 == 2) && (1 > 3) ? (2 == 3) ? (23) : 2323 : 23;
-
-            // optimirano
-
-            switch (ocjena)
-            {
-                case 1:
-                    Console.WriteLine("Ocjena nije zadovoljavajuća."); break;
-                case 2:
-                    Console.WriteLine("Ocjena je dovoljan."); break;
-                case 3:
-                    Console.WriteLine("Ocjena je dobar."); break;
-                case 4:
-                    Console.WriteLine("Ocjena je vrlo dobar."); break;
-                default:
-                    Console.WriteLine("Ocjena je odličan."); break;
-            }
+            var x = Int32.Parse(red.Split(';').First()).ToString().Split().Length;
 
             Console.ReadKey();
         }
