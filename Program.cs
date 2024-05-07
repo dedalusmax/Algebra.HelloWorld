@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace Algebra.HelloWorld
 {
@@ -7,29 +6,37 @@ namespace Algebra.HelloWorld
     {
         static void Main(string[] args)
         {
-            string recenica = "Ovo je jedna rečenica";
-            string[] tekst = recenica.Split(' ');
+            // vremenska prognoza:
 
-            if (tekst.Length > 0)
+            // ispisati tekst vremena i mogućnosti za kišu:
+
+            Console.Write("Kakvo je vrijeme? ");
+            string vrijeme = Console.ReadLine(); // oblacno, vedro
+
+            Console.Write("Da li je mogućnost kiše? ");
+            string kisa = Console.ReadLine(); // da/ne
+
+            // priprema
+            bool moguca_kisa = (kisa == "da");
+
+            // obrada
+            if (vrijeme == "oblacno")
             {
-                Console.WriteLine(tekst[1]);
-                tekst[0] = "To";
-                Console.WriteLine(tekst.ToString());
+                Console.Write("Vrijeme je oblačno. ");
+
+                if (moguca_kisa)
+                {
+                    Console.WriteLine("Ponesite kišobran!");
+                }
+                else
+                {
+                    Console.WriteLine("Ali ne brinite, neće biti kiše. ;)");
+                } 
             }
-
-            // string[] ljubimci;
-            // string[] ljubimci = new string[2];
-            //string[] ljubimci = new string[] { "pas", "mačka", "ribica" };
-            string[] ljubimci = { "pas", "mačka", "ribica" };
-
-            ljubimci[2] = "hrčak";
-
-            short[] ocjene = { 1, -2, 2, -3, 3, -4, 4, -5, 5 };
-
-            // dvodimenzionalni niz 
-
-            int[,] matrica = new int[10, 10];
-            matrica[1, 4] = 10;
+            else
+            {
+                Console.WriteLine("Vrijeme će biti prekrasno. :)");
+            }
 
             Console.ReadKey();
         }
