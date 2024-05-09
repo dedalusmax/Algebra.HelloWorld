@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Algebra.HelloWorld
 {
@@ -6,36 +9,86 @@ namespace Algebra.HelloWorld
     {
         static void Main(string[] args)
         {
-            // vremenska prognoza:
+            ArrayList kolekcija = new ArrayList();
+            kolekcija.Add(1);
+            kolekcija.Add("Sir");
+            kolekcija.Add(true);
+            kolekcija.Add("Sir");
+            kolekcija.Add("Sir");
 
-            // ispisati tekst vremena i mogućnosti za kišu:
+            Console.WriteLine(kolekcija[0]);
+            Console.WriteLine(kolekcija[1]);
+            Console.WriteLine(kolekcija[2]);
 
-            Console.Write("Kakvo je vrijeme? ");
-            string vrijeme = Console.ReadLine(); // oblacno, vedro
+            Console.WriteLine(kolekcija.Count);
 
-            Console.Write("Da li je mogućnost kiše? ");
-            string kisa = Console.ReadLine(); // da/ne
+            Console.WriteLine(kolekcija.Contains(1));
+            Console.WriteLine(kolekcija.Contains("Mlijeko"));
+            
+            kolekcija.RemoveAt(0);
+            kolekcija.Remove("Sir");
+            kolekcija.Clear();
 
-            // priprema
-            bool moguca_kisa = (kisa == "da");
-
-            // obrada
-            if (vrijeme == "oblacno")
+            if (kolekcija.Contains(150))
             {
-                Console.Write("Vrijeme je oblačno. ");
-
-                if (moguca_kisa)
-                {
-                    Console.WriteLine("Ponesite kišobran!");
-                }
-                else
-                {
-                    Console.WriteLine("Ali ne brinite, neće biti kiše. ;)");
-                } 
             }
-            else
+
+            // generičke liste
+
+            int[] nizBrojeva = new int[3];
+            ArrayList kolekcijaBrojeva = new ArrayList(); // i drugi tipovi!!
+
+            List<int> brojevi = new List<int>(); // samo int-ovi
+            brojevi.Add(25);
+            brojevi.Add(50);
+            brojevi.Add(75);
+            brojevi.Add(100);
+
+            foreach (int i in brojevi) 
+            { 
+                Console.WriteLine(i);
+            }
+
+            string[] namirnice = new string[] { "Med", "Kruh", "Jaja", "Salata", "Kulen" };
+            var popis = string.Empty;
+            foreach (string n in namirnice)
             {
-                Console.WriteLine("Vrijeme će biti prekrasno. :)");
+                popis += ", " + n;
+            }
+            Console.WriteLine(popis);
+
+            // for petlja
+            popis = "";
+            for (int i = 0; i < 5; i++)
+            {
+                popis += ", " + namirnice[i];
+            }
+            Console.WriteLine(popis);
+
+            popis = "";
+            for (int j = 4; j >= 0; j--) // (namirnice.Length - 1)
+            {
+                popis += ", " + namirnice[j];
+            }
+            Console.WriteLine(popis);
+
+            for (int x = 0; x < 5; x++)
+            {
+                if (x == 3)
+                {
+                    //break;
+                    continue;
+                }
+
+                Console.WriteLine(x);
+            }
+
+            for (int x = 1; x <= 10; x++)
+            {
+                for (int y = 1; y <= 10; y++)
+                {
+                    Console.WriteLine("{0},{1}", x, y);
+;                }
             }
 
             Console.ReadKey();
