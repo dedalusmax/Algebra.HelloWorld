@@ -33,6 +33,9 @@ namespace Algebra.HelloWorld
             {
             }
 
+            // kolekcija.AddRange(kolekcija);
+            //kolekcija.RemoveRange(0, 1);
+
             // generičke liste
 
             int[] nizBrojeva = new int[3];
@@ -64,6 +67,8 @@ namespace Algebra.HelloWorld
                 popis += ", " + namirnice[i];
             }
             Console.WriteLine(popis);
+
+            //var naopako = namirnice.Reverse();
 
             popis = "";
             for (int j = 4; j >= 0; j--) // (namirnice.Length - 1)
