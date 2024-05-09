@@ -60,6 +60,24 @@ namespace Algebra.HelloWorld
 ;                }
             }
 
+            int petlja = 0;
+            while (petlja < 10)
+            {
+                Console.WriteLine(petlja);
+                // petlja++;
+
+                if (petlja % 2 == 0)
+                    petlja++;
+                else if (petlja % 2 == 1)
+                    petlja += 2;
+            }
+
+            petlja = 5;
+            do
+            {
+                Console.WriteLine(petlja);
+            } while (petlja < 3);  
+
             Console.ReadKey();
         }
     }
