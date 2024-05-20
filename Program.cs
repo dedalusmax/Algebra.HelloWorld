@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Eventing.Reader;
+using System.Runtime.CompilerServices;
+using System.Runtime.Remoting.Messaging;
 
 namespace Algebra.HelloWorld
 {
@@ -28,7 +30,19 @@ namespace Algebra.HelloWorld
             jabuka3.BioUzgoj = true;
             jabuka3.Kupi();
 
-            Console.ReadKey();
+            Console.Clear();
+
+            var racun = new BankovniRacun();
+            racun.Info();
+            Console.ReadLine();
+
+            racun.Uplati(500.00);
+            racun.Info();
+            Console.ReadLine();
+
+            racun.Isplati(1200.00);
+            racun.Info();
+            Console.ReadLine();
         }
     }
 
@@ -104,4 +118,52 @@ namespace Algebra.HelloWorld
         // privatne metode
     }
 
+    public class BankovniRacun
+    {
+        private long _broj;
+        private double _stanje;
+        private string _vrsta;       
+
+        public BankovniRacun()
+        {
+            _broj = 123456789;
+            _stanje = 0.0;
+            _vrsta = "žiro";
+        }
+
+        public void Uplati(double iznos)
+        {
+            _stanje += iznos;
+        }
+
+        public void Isplati(double iznos)
+        {
+            _stanje -= iznos;
+
+            if (_stanje < 0) Console.Beep();
+        }
+
+        public void Info()
+        {
+            Console.WriteLine($"Broj računa: {_broj}");
+            Console.WriteLine($"Vrsta računa: {_vrsta}");
+
+            if (_stanje > 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            }
+            else if (_stanje < 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+            }
+
+            Console.WriteLine("Stanje računa: {0:0.00} EUR", _stanje);
+
+            Console.ResetColor();
+        }
+    }
 }
