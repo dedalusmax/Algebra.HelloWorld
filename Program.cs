@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace Algebra.HelloWorld
 {
@@ -9,6 +10,46 @@ namespace Algebra.HelloWorld
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
+        {
+            // RadiSaJabukama();
+
+            // RadiSaRacunima();
+
+            Osoba osoba1 = new Osoba();
+            osoba1.Ime = "Pero";
+            osoba1.Prezime = "Perić";
+            osoba1.DatumRodjenja = new DateTime(1994, 01, 01);
+            Console.WriteLine(osoba1.VratiPunoIme());
+            Console.WriteLine(osoba1.Starost);
+
+            Osoba osoba2 = new Osoba();
+            osoba2.Ime = "Mara";
+            osoba2.Prezime = "Marić";
+            osoba2.DatumRodjenja = new DateTime(2000, 04, 01);
+            Console.WriteLine(osoba2.VratiPunoIme());
+            Console.WriteLine(osoba2.Starost);
+
+            Console.ReadKey();
+        }
+
+        private static void RadiSaRacunima()
+        {
+            var racun = new BankovniRacun();
+            racun.Info();
+            Console.ReadLine();
+
+            racun.Uplati(500.00);
+            racun.Info();
+            Console.ReadLine();
+
+            racun.Isplati(1200.00);
+            racun.Info();
+            Console.ReadLine();
+
+            Console.Clear();
+        }
+
+        private static void RadiSaJabukama()
         {
             Jabuka jabuka1 = new Jabuka();
             jabuka1.IspisiSvojstva();
@@ -28,18 +69,16 @@ namespace Algebra.HelloWorld
             jabuka3.Kupi();
 
             Console.Clear();
+        }
+    }
 
+    class Test
+    {
+        Test() 
+        {
+            var osoba = new Osoba();
             var racun = new BankovniRacun();
-            racun.Info();
-            Console.ReadLine();
-
-            racun.Uplati(500.00);
-            racun.Info();
-            Console.ReadLine();
-
-            racun.Isplati(1200.00);
-            racun.Info();
-            Console.ReadLine();
+            var jabuka = new Jabuka();
         }
     }
 
@@ -161,6 +200,59 @@ namespace Algebra.HelloWorld
             Console.WriteLine("Stanje računa: {0:0.00} EUR", _stanje);
 
             Console.ResetColor();
+        }
+    }
+
+    public class Osoba
+    {
+        //public string Ime;
+        //public string Prezime;
+        //public int Starost;
+
+        private string _ime;
+        private string _prezime;
+        private int _starost;
+        private DateTime _datumRodjenja;
+
+        public string Ime
+        {
+            get { return _ime; }
+            set { _ime = value; }
+        }
+
+        public string Prezime
+        {
+            get { return _prezime; }
+            set { _prezime = value; }
+        }
+
+        public int Starost
+        {
+            get { return _starost; }
+        }
+
+        public DateTime DatumRodjenja
+        {
+            set 
+            { 
+                _datumRodjenja = value;
+                IzracunajStarost();
+            }
+        }
+
+        public Osoba()
+        {
+
+        }
+
+        public string VratiPunoIme()
+        {
+            return $"{_ime} {_prezime}";
+        }
+
+        private void IzracunajStarost()
+        {
+            _starost = DateTime.Today.Year - _datumRodjenja.Year;
         }
     }
 }
