@@ -32,6 +32,9 @@ namespace HelloWorld
             Console.WriteLine(osoba2.VratiPunoIme());
             Console.WriteLine(osoba2.Starost);
 
+            var program = new ProgramObrazovanja();
+            program.Polaznici.Add(osoba2);
+
             Console.ReadKey();
         }
 

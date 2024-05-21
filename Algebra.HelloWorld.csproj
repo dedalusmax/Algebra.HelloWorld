@@ -46,6 +46,8 @@
     <Compile Include="Models\BankovniRacun.cs" />
     <Compile Include="Models\Jabuka.cs" />
     <Compile Include="Models\Osoba.cs" />
+    <Compile Include="Models\Modul.cs" />
+    <Compile Include="Models\ProgramObrazovanja.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -37,6 +37,8 @@ namespace HelloWorld.Models
 
         internal BankovniRacun Racun { get; set; }
 
+        //internal ProgramObrazovanja ProgramObrazovanja { get; set; }
+
         public Osoba()
         {
 
