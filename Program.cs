@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Diagnostics.Eventing.Reader;
-using System.Runtime.CompilerServices;
-using System.Runtime.Remoting.Messaging;
 
 namespace Algebra.HelloWorld
 {
