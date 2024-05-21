@@ -10,9 +10,16 @@ namespace HelloWorld.Models
 
         public BankovniRacun()
         {
-            _broj = 123456789;
-            _stanje = 0.0;
-            _vrsta = "žiro";
+            //_broj = 123456789;
+            //_stanje = 0.0;
+            //_vrsta = "žiro";
+        }
+
+        public BankovniRacun(long broj, string vrsta, double stanje)
+        {
+            _broj = broj;
+            _vrsta = vrsta;
+            _stanje = stanje;
         }
 
         public void Uplati(double iznos)

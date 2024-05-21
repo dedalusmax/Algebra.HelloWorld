@@ -4,10 +4,6 @@ namespace HelloWorld.Models
 {
     public class Osoba
     {
-        //public string Ime;
-        //public string Prezime;
-        //public int Starost;
-
         private string _ime;
         private string _prezime;
         private int _starost;
@@ -39,9 +35,16 @@ namespace HelloWorld.Models
             }
         }
 
+        internal BankovniRacun Racun { get; set; }
+
         public Osoba()
         {
 
+        }
+
+        public void DodajRacun(long broj, string vrsta, double stanje)
+        {
+            Racun = new BankovniRacun(broj, vrsta, stanje);
         }
 
         public string VratiPunoIme()

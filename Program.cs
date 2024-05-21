@@ -11,9 +11,9 @@ namespace HelloWorld
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            RadiSaJabukama();
+            //RadiSaJabukama();
 
-            RadiSaRacunima();
+            //RadiSaRacunima();
 
             Osoba osoba1 = new Osoba();
             osoba1.Ime = "Pero";
@@ -21,6 +21,9 @@ namespace HelloWorld
             osoba1.DatumRodjenja = new DateTime(1994, 01, 01);
             Console.WriteLine(osoba1.VratiPunoIme());
             Console.WriteLine(osoba1.Starost);
+
+            osoba1.DodajRacun(123213213213, "tekući", 100.00);
+            osoba1.Racun.Uplati(40.00);
 
             Osoba osoba2 = new Osoba();
             osoba2.Ime = "Mara";
