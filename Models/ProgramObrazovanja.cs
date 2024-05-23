@@ -12,8 +12,10 @@ namespace HelloWorld.Models
 
         public List<Osoba> Polaznici { get; set; }
 
-        internal ProgramObrazovanja() 
+        internal ProgramObrazovanja(string naziv, string grupa) 
         {
+            Naziv = naziv;
+            Grupa = grupa;
             ListaModula = new List<Modul>();
             Polaznici = new List<Osoba>();
         }

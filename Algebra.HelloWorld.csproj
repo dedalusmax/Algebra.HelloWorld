@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\BankovniRacun.cs" />
+    <Compile Include="Models\Calc.cs" />
+    <Compile Include="Models\MyConsole.cs" />
     <Compile Include="Models\Jabuka.cs" />
     <Compile Include="Models\Osoba.cs" />
     <Compile Include="Models\Modul.cs" />

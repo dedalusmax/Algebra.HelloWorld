@@ -35,13 +35,20 @@ namespace HelloWorld.Models
             }
         }
 
+        public static int RedniBroj { get; private set; }
+
         internal BankovniRacun Racun { get; set; }
 
         //internal ProgramObrazovanja ProgramObrazovanja { get; set; }
 
         public Osoba()
         {
+            RedniBroj++;
+        }
 
+        ~Osoba()
+        {
+            RedniBroj--;
         }
 
         public void DodajRacun(long broj, string vrsta, double stanje)
