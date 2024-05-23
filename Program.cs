@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HelloWorld;
+using System;
+using System.Collections;
 
 namespace Algebra.HelloWorld
 {
@@ -6,44 +8,46 @@ namespace Algebra.HelloWorld
     {
         static void Main(string[] args)
         {
-            //byte ocjene = 5;
-            //byte ocjena2 = -4;
+            //var osoba = new Osoba();
+            //osoba.Ime = "Pero";
+            //osoba.Prezime = "Perić";
+            
+            //Console.WriteLine(osoba.IzracunajGodine());
 
-            //short ocjene3 = -255;
-            //ushort ocjene4 = -255;
+            var zaposlenik = new Zaposlenik();
+            zaposlenik.Ime = "Marko";
+            zaposlenik.Prezime = "Marković";
 
-            //int rgb = 0x343433;
-            //byte rgb2 = 0b_0010_1111;
+            Console.WriteLine(zaposlenik.IzracunajGodine());
 
-            bool programiranjeJeZabavno = true;
-            bool vaniPadaKisa = false;
+            var admin = new Administrator();
+            admin.Ime = "Marta";
+            admin.Prezime = "Martić";
+            admin.ZadajPravaPristupa();
 
-            Console.WriteLine(programiranjeJeZabavno && vaniPadaKisa);
-            Console.WriteLine(programiranjeJeZabavno || vaniPadaKisa);
-            Console.WriteLine(vaniPadaKisa);
-            Console.WriteLine(!vaniPadaKisa);
+            var popisPjesama = new ShuffledArrayList();
+            popisPjesama.Shuffle();
 
-            int a = 10;
-            int b = 20;
-
-            Console.WriteLine(a < b);
-            Console.WriteLine(a > b);
-            Console.WriteLine(a <= b);
-            Console.WriteLine(a >= b);
-            Console.WriteLine(a == b);
-            Console.WriteLine(a != b);
-
-            Console.WriteLine(a < b && b == 0);
-
-            string ime = "Pero";
-
-            Console.WriteLine(ime == "Mato");
-            Console.WriteLine(ime != "Ivica");
-
-            string pwd = "";
-            Console.WriteLine(ime == "pero@algebra.hr" && pwd == "pero123");
+            var cudniKorisnik = new Haker();
+            //cudniKorisnik.ZadajPravaPristupa();
 
             Console.ReadKey();
+        }
+    }
+
+    internal class ShuffledArrayList : ArrayList
+    {
+        public ShuffledArrayList()
+        {
+
+        }
+
+        public void Shuffle()
+        {
+            foreach (var item in this)
+            {
+                // shuffle
+            }
         }
     }
 }
