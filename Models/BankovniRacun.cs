@@ -2,7 +2,7 @@
 
 namespace HelloWorld.Models
 {
-    internal class BankovniRacun
+    internal abstract class BankovniRacun
     {
         internal long Broj { get; private set; }
 
@@ -29,7 +29,7 @@ namespace HelloWorld.Models
             Stanje += iznos;
         }
 
-        public void Isplati(double iznos)
+        public virtual void Isplati(double iznos)
         {
             Stanje -= iznos;
 

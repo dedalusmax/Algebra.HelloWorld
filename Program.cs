@@ -11,7 +11,7 @@ namespace HelloWorld
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            var racun = new BankovniRacun();
+            var racun = new ZiroRacun(12321312, 50.00);
             racun.Info();
             Console.ReadLine();
 
