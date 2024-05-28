@@ -1,8 +1,9 @@
-﻿using System;
+﻿using HelloWorld.Interfaces;
+using System;
 
 namespace HelloWorld.Models
 {
-    internal class ZiroRacun : BankovniRacun
+    internal class ZiroRacun : BankovniRacun, ISredstvoPlacanja, IBezgotovinskoPlacanje
     {
         public ZiroRacun(long broj, double stanje) : base(broj, "žiro-račun", stanje)
         {

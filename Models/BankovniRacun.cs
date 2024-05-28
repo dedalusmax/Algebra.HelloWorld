@@ -1,12 +1,13 @@
-﻿using System;
+﻿using HelloWorld.Interfaces;
+using System;
 
 namespace HelloWorld.Models
 {
-    internal abstract class BankovniRacun
+    internal abstract class BankovniRacun : ISredstvoPlacanja, IBezgotovinskoPlacanje
     {
         internal long Broj { get; private set; }
 
-        internal double Stanje { get; private set; }
+        public double Stanje { get; private set; }
 
         internal string Vrsta { get; private set; }
 
