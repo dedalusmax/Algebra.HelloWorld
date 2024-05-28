@@ -18,7 +18,7 @@ namespace Algebra.HelloWorld
             zaposlenik.Ime = "Marko";
             zaposlenik.Prezime = "Marković";
 
-            Console.WriteLine(zaposlenik.IzracunajGodine());
+            //Console.WriteLine(zaposlenik.IzracunajGodine());
 
             var admin = new Administrator();
             admin.Ime = "Marta";
@@ -30,6 +30,19 @@ namespace Algebra.HelloWorld
 
             var cudniKorisnik = new Haker();
             //cudniKorisnik.ZadajPravaPristupa();
+
+            zaposlenik.Prijavi("mmarkovic", "123");
+            if (zaposlenik.Prijavljen)
+            {
+                zaposlenik.UnesiRadnoVrijeme(DateTime.Today.AddHours(8), DateTime.Now);
+            }
+
+            admin.Prijavi("mmartic", "232");
+            if (admin.Prijavljen)
+            {
+                // prijava kao korisnik
+                admin.UnesiRadnoVrijeme(DateTime.Today.AddHours(8), DateTime.Now);
+            }
 
             Console.ReadKey();
         }

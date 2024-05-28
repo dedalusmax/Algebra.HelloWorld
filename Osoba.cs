@@ -1,4 +1,6 @@
-﻿namespace HelloWorld
+﻿using System;
+
+namespace HelloWorld
 {
     internal abstract class Osoba
     {
@@ -6,12 +8,28 @@
 
         public string Prezime { get; set; }
 
-        public void Prijavi()
-        {
+        public string KorisnickiRacun { get; set; }
 
+        public string Zaporka { get; set; }
+
+        public bool Prijavljen { get; private set; }
+
+        public int GodineIskustva { get; protected set; }
+
+        public void Prijavi(string korisnickiRacun, string zaporka)
+        {
+            // logika prijave
+            Prijavljen = true;
         }
 
-        internal int IzracunajGodine()
+        public virtual void UnesiRadnoVrijeme(DateTime vrijemeOd, DateTime vrijemeDo)
+        {
+            // logika ...
+        }
+
+        public abstract void UnesiGodineIskustva(int brojGodina);
+
+        protected int IzracunajGodine()
         {
             return 35;
         }
