@@ -4,9 +4,11 @@ namespace HelloWorld.Models
 {
     internal class BankovniRacun
     {
-        private long _broj;
-        private double _stanje;
-        private string _vrsta;
+        internal long Broj { get; private set; }
+
+        internal double Stanje { get; private set; }
+
+        internal string Vrsta { get; private set; }
 
         public BankovniRacun()
         {
@@ -17,33 +19,33 @@ namespace HelloWorld.Models
 
         public BankovniRacun(long broj, string vrsta, double stanje)
         {
-            _broj = broj;
-            _vrsta = vrsta;
-            _stanje = stanje;
+            Broj = broj;
+            Vrsta = vrsta;
+            Stanje = stanje;
         }
 
         public void Uplati(double iznos)
         {
-            _stanje += iznos;
+            Stanje += iznos;
         }
 
         public void Isplati(double iznos)
         {
-            _stanje -= iznos;
+            Stanje -= iznos;
 
-            if (_stanje < 0) Console.Beep();
+            if (Stanje < 0) Console.Beep();
         }
 
         public void Info()
         {
-            Console.WriteLine($"Broj računa: {_broj}");
-            Console.WriteLine($"Vrsta računa: {_vrsta}");
+            Console.WriteLine($"Broj računa: {Broj}");
+            Console.WriteLine($"Vrsta računa: {Vrsta}");
 
-            if (_stanje > 0)
+            if (Stanje > 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
             }
-            else if (_stanje < 0)
+            else if (Stanje < 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
             }
@@ -52,7 +54,7 @@ namespace HelloWorld.Models
                 Console.ForegroundColor = ConsoleColor.Yellow;
             }
 
-            Console.WriteLine("Stanje računa: {0:0.00} EUR", _stanje);
+            Console.WriteLine("Stanje računa: {0:0.00} EUR", Stanje);
 
             Console.ResetColor();
         }
