@@ -1,5 +1,5 @@
-﻿using HelloWorld.Interfaces;
-using HelloWorld.Models;
+﻿using Algebra.HelloWorld.ClassLibrary.Interfaces;
+using Algebra.HelloWorld.ClassLibrary.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;

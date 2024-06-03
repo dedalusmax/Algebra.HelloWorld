@@ -1,9 +1,9 @@
-﻿using HelloWorld.Interfaces;
+﻿using Algebra.HelloWorld.ClassLibrary.Interfaces;
 using System;
 
-namespace HelloWorld.Models
+namespace Algebra.HelloWorld.ClassLibrary.Models
 {
-    internal class ZiroRacun : BankovniRacun, ISredstvoPlacanja, IBezgotovinskoPlacanje
+    public class ZiroRacun : BankovniRacun, ISredstvoPlacanja, IBezgotovinskoPlacanje
     {
         public ZiroRacun(long broj, double stanje) : base(broj, "žiro-račun", stanje)
         {

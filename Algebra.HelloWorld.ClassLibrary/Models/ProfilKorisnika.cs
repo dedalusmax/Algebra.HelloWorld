@@ -1,9 +1,9 @@
-﻿using HelloWorld.Interfaces;
+﻿using Algebra.HelloWorld.ClassLibrary.Interfaces;
 using System;
 
-namespace HelloWorld.Models
+namespace Algebra.HelloWorld.ClassLibrary.Models
 {
-    internal class ProfilKorisnika : IInfo
+    public class ProfilKorisnika : IInfo
     {
         public int Id { get; set; }
 

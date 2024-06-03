@@ -1,9 +1,9 @@
-﻿using HelloWorld.Interfaces;
+﻿using Algebra.HelloWorld.ClassLibrary.Interfaces;
 using System;
 
-namespace HelloWorld.Models
+namespace Algebra.HelloWorld.ClassLibrary.Models
 {
-    internal class Novcanik : ISredstvoPlacanja
+    public class Novcanik : ISredstvoPlacanja
     {
         public double Stanje { get; set; }
 

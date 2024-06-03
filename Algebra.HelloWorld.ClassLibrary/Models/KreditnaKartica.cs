@@ -1,9 +1,9 @@
-﻿using HelloWorld.Interfaces;
+﻿using Algebra.HelloWorld.ClassLibrary.Interfaces;
 using System;
 
-namespace HelloWorld.Models
+namespace Algebra.HelloWorld.ClassLibrary.Models
 {
-    internal class KreditnaKartica : ISredstvoPlacanja, IBezgotovinskoPlacanje
+    public class KreditnaKartica : ISredstvoPlacanja, IBezgotovinskoPlacanje
     {
         public double Stanje { get; set; }
 

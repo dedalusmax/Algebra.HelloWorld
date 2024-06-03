@@ -1,4 +1,4 @@
-﻿namespace HelloWorld.Interfaces
+﻿namespace Algebra.HelloWorld.ClassLibrary.Interfaces
 {
     public interface ISredstvoPlacanja : IInfo
     {

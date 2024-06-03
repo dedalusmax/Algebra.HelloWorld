@@ -1,9 +1,9 @@
-﻿using HelloWorld.Interfaces;
+﻿using Algebra.HelloWorld.ClassLibrary.Interfaces;
 using System;
 
-namespace HelloWorld.Models
+namespace Algebra.HelloWorld.ClassLibrary.Models
 {
-    internal abstract class BankovniRacun : ISredstvoPlacanja, IBezgotovinskoPlacanje
+    public abstract class BankovniRacun : ISredstvoPlacanja, IBezgotovinskoPlacanje
     {
         internal long Broj { get; private set; }
 

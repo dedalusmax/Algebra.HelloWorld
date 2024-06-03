@@ -41,6 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IBezgotovinskoPlacanje.cs" />
+    <Compile Include="Interfaces\IInfo.cs" />
+    <Compile Include="Interfaces\ISredstvoPlacanja.cs" />
+    <Compile Include="Models\BankovniRacun.cs" />
+    <Compile Include="Models\KreditnaKartica.cs" />
+    <Compile Include="Models\Novcanik.cs" />
+    <Compile Include="Models\ProfilKorisnika.cs" />
+    <Compile Include="Models\TekuciRacun.cs" />
+    <Compile Include="Models\ZiroRacun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
