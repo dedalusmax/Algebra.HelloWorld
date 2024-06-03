@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enumerations\Mjesec.cs" />
+    <Compile Include="Enumerations\SkolskaOcjena.cs" />
+    <Compile Include="Enumerations\VrstaRacuna.cs" />
     <Compile Include="Interfaces\IBezgotovinskoPlacanje.cs" />
     <Compile Include="Interfaces\IInfo.cs" />
     <Compile Include="Interfaces\ISredstvoPlacanja.cs" />
@@ -52,5 +55,6 @@
     <Compile Include="Models\ZiroRacun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

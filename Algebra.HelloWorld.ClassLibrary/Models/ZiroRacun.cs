@@ -5,7 +5,7 @@ namespace Algebra.HelloWorld.ClassLibrary.Models
 {
     public class ZiroRacun : BankovniRacun, ISredstvoPlacanja, IBezgotovinskoPlacanje
     {
-        public ZiroRacun(long broj, double stanje) : base(broj, "žiro-račun", stanje)
+        public ZiroRacun(long broj, double stanje) : base(broj, Enumerations.VrstaRacuna.ZiroRacun, stanje)
         {
             
         }

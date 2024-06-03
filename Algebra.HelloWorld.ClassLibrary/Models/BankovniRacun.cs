@@ -1,4 +1,5 @@
-﻿using Algebra.HelloWorld.ClassLibrary.Interfaces;
+﻿using Algebra.HelloWorld.ClassLibrary.Enumerations;
+using Algebra.HelloWorld.ClassLibrary.Interfaces;
 using System;
 
 namespace Algebra.HelloWorld.ClassLibrary.Models
@@ -9,7 +10,7 @@ namespace Algebra.HelloWorld.ClassLibrary.Models
 
         public double Stanje { get; private set; }
 
-        internal string Vrsta { get; private set; }
+        internal VrstaRacuna Vrsta { get; private set; }
 
         public BankovniRacun()
         {
@@ -18,7 +19,7 @@ namespace Algebra.HelloWorld.ClassLibrary.Models
             //_vrsta = "žiro";
         }
 
-        public BankovniRacun(long broj, string vrsta, double stanje)
+        public BankovniRacun(long broj, VrstaRacuna vrsta, double stanje)
         {
             Broj = broj;
             Vrsta = vrsta;

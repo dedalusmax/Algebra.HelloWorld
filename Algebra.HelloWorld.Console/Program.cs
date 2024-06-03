@@ -18,6 +18,8 @@ namespace Algebra.HelloWorld
             racun.Info();
             Console.ReadLine();
 
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+
             racun.Uplati(500.00);
             racun.Info();
             Console.ReadLine();
