@@ -76,10 +76,17 @@ namespace HelloWorld
                 mRacun.Info();
             }
 
-            var informacijeORacunima = new List<IInfo>() { racun, ziroRacun, kartica, dzep };
-            foreach (var infoRacun in informacijeORacunima)
+            var profil = new ProfilKorisnika() 
+            { 
+                Id = 1,
+                Ime = "Pero",
+                Prezime = "Perić"
+            };
+
+            var informacije = new List<IInfo>() { racun, ziroRacun, kartica, dzep, profil };
+            foreach (var info in informacije)
             {
-                infoRacun.Info();
+                info.Info();
             }
 
             Console.ReadKey();

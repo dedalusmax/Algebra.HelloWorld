@@ -49,6 +49,7 @@
     <Compile Include="Models\BankovniRacun.cs" />
     <Compile Include="Models\KreditnaKartica.cs" />
     <Compile Include="Models\Novcanik.cs" />
+    <Compile Include="Models\ProfilKorisnika.cs" />
     <Compile Include="Models\TekuciRacun.cs" />
     <Compile Include="Models\ZiroRacun.cs" />
     <Compile Include="Program.cs" />
