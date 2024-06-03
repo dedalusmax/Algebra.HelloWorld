@@ -50,7 +50,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Algebra.HelloWorld.ClassLibrary\Algebra.HelloWorld.ClassLibrary.csproj">
+    <ProjectReference Include="..\Algebra.HelloWorld.ClassLibrary\Algebra.HelloWorld.ClassLibrary.csproj">
       <Project>{8dd81e63-3f1e-49ea-912c-897687bcf157}</Project>
       <Name>Algebra.HelloWorld.ClassLibrary</Name>
     </ProjectReference>
