@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B7AA4503-6C29-4FB8-995D-92266805D673}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Algebra.HelloWorld</RootNamespace>
-    <AssemblyName>Algebra.HelloWorld</AssemblyName>
+    <ProjectGuid>{8DD81E63-3F1E-49EA-912C-897687BCF157}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Algebra.HelloWorld.ClassLibrary</RootNamespace>
+    <AssemblyName>Algebra.HelloWorld.ClassLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,21 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IBezgotovinskoPlacanje.cs" />
-    <Compile Include="Interfaces\IInfo.cs" />
-    <Compile Include="Interfaces\ISredstvoPlacanja.cs" />
-    <Compile Include="Models\BankovniRacun.cs" />
-    <Compile Include="Models\KreditnaKartica.cs" />
-    <Compile Include="Models\Novcanik.cs" />
-    <Compile Include="Models\ProfilKorisnika.cs" />
-    <Compile Include="Models\TekuciRacun.cs" />
-    <Compile Include="Models\ZiroRacun.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

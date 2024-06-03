@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algebra.HelloWorld", "Algebra.HelloWorld.csproj", "{B7AA4503-6C29-4FB8-995D-92266805D673}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algebra.HelloWorld.ClassLibrary", "Algebra.HelloWorld.ClassLibrary\Algebra.HelloWorld.ClassLibrary.csproj", "{8DD81E63-3F1E-49EA-912C-897687BCF157}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B7AA4503-6C29-4FB8-995D-92266805D673}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7AA4503-6C29-4FB8-995D-92266805D673}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7AA4503-6C29-4FB8-995D-92266805D673}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD81E63-3F1E-49EA-912C-897687BCF157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD81E63-3F1E-49EA-912C-897687BCF157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD81E63-3F1E-49EA-912C-897687BCF157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD81E63-3F1E-49EA-912C-897687BCF157}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
