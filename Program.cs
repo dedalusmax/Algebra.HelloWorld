@@ -6,7 +6,7 @@ namespace Algebra.HelloWorld
     {
         public delegate void TestDelegate(string tekst);
 
-        public delegate void TitleDelegate();
+        public delegate void TitleDelegate(string ime, string prezime);
 
         static void Main(string[] args)
         {
@@ -37,24 +37,26 @@ namespace Algebra.HelloWorld
             Console.WriteLine($"Ivršavamo metodu B sa porukom: {poruka}.");
         }
 
-        private static void NaslovSvjedozbe()
+        private static void NaslovSvjedozbe(string ime, string prezime)
         {
             Console.WriteLine("SVJEDODŽBA");
+            Console.WriteLine($"Ime i prezime polaznika: {ime} {prezime}");
         }
 
-        private static void NaslovVozackeDozvole()
+        private static void NaslovVozackeDozvole(string ime, string prezime)
         {
             Console.WriteLine("VOZAČKA DOZVOLA");
+            Console.WriteLine($"Ime i prezime vozača: {ime} {prezime}");
         }
 
         // template metoda
         public static void PopuniDokument(TitleDelegate naslov, string ime, string prezime)
         {
-            naslov.Invoke();
+            naslov.Invoke(ime, prezime);
             Console.WriteLine("Slika grba");
-            Console.WriteLine($"Ime i prezime polaznika: {ime} {prezime}");
             Console.WriteLine("Mjesto i vrijeme: YYY");
             Console.WriteLine("Potpis odg. osobe: XXX");
+            naslov.Invoke(ime, prezime);
         }
 
         private static void PopuniSvjedodzbu(string ime, string prezime)
