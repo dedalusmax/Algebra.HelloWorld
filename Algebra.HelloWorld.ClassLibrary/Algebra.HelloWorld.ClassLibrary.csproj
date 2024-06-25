@@ -41,18 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enumerations\Mjesec.cs" />
-    <Compile Include="Enumerations\SkolskaOcjena.cs" />
-    <Compile Include="Enumerations\VrstaRacuna.cs" />
-    <Compile Include="Interfaces\IBezgotovinskoPlacanje.cs" />
-    <Compile Include="Interfaces\IInfo.cs" />
-    <Compile Include="Interfaces\ISredstvoPlacanja.cs" />
-    <Compile Include="Models\BankovniRacun.cs" />
-    <Compile Include="Models\KreditnaKartica.cs" />
-    <Compile Include="Models\Novcanik.cs" />
-    <Compile Include="Models\ProfilKorisnika.cs" />
-    <Compile Include="Models\TekuciRacun.cs" />
-    <Compile Include="Models\ZiroRacun.cs" />
+    <Compile Include="Enumerations\ClothSize.cs" />
+    <Compile Include="Enumerations\ClothType.cs" />
+    <Compile Include="Interfaces\IArticle.cs" />
+    <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\Dress.cs" />
+    <Compile Include="Models\Outfit.cs" />
+    <Compile Include="Models\TShirt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
