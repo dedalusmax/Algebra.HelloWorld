@@ -1,31 +1,8 @@
-﻿using HelloWorld;
-using System;
+﻿using System;
 
 namespace Algebra.HelloWorld
 {
     internal class Program
-    {
-        static void Main(string[] args)
-        {
-            var obrada = new ObradaPodataka();
-
-            obrada.ProcesZavrsen += ProcesObradeZavrsen;
-
-            obrada.PokreniProces();
-
-            // tralala
-
-            Console.ReadKey();
-        }
-
-        private static bool ProcesObradeZavrsen()
-        {
-            Console.WriteLine("Dočekali kraj procesa.");
-            return true;
-        }
-    }
-
-    internal class Program2
     {
         public delegate void TestDelegate(string tekst);
 
@@ -40,7 +17,7 @@ namespace Algebra.HelloWorld
             Snijeg
         }
 
-        static void Glavna()
+        static void Main(string[] args)
         {
             TestDelegate del1 = MetodaA;
 
