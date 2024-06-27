@@ -3,9 +3,17 @@ using System;
 
 namespace Algebra.HelloWorld
 {
-    internal class Program : IDisposable
+    internal class Program
     {
         static void Main(string[] args)
+        {
+            // ObradaPodataka();
+
+            var osoba = new Osoba();
+            osoba.TekuciRacun.Uplati(120.00);
+        }
+
+        private static void ObradaPodataka()
         {
             var obrada = new ObradaPodataka();
 
@@ -32,11 +40,6 @@ namespace Algebra.HelloWorld
         private static void ProcesObradeZavrsen(object sender, EventArgs e)
         {
             Console.WriteLine("Dočekali kraj procesa.");
-        }
-
-        public void Dispose()
-        {
-            Console.WriteLine("Gasim program.");
         }
     }
 }
