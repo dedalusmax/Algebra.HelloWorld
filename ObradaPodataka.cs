@@ -16,7 +16,7 @@ namespace HelloWorld
             for (byte i = 1; i <= 10; i++)
             {
                 //Console.WriteLine("Proces u tijeku, faza {0}", i);
-                Thread.Sleep(1000);
+                //Thread.Sleep(1000);
                 FazaZavrsena.Invoke(this, i);
             }
 
