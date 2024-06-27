@@ -9,6 +9,7 @@ namespace Algebra.HelloWorld
         {
             var obrada = new ObradaPodataka();
 
+            obrada.FazaZavrsena += FazaObradeZavrsena;
             obrada.ProcesZavrsen += ProcesObradeZavrsen;
 
             obrada.PokreniProces();
@@ -18,10 +19,14 @@ namespace Algebra.HelloWorld
             Console.ReadKey();
         }
 
-        private static bool ProcesObradeZavrsen()
+        private static void FazaObradeZavrsena(object sender, byte brojFaze)
+        {
+            Console.WriteLine("Proces u tijeku, faza {0} završena.", brojFaze);
+        }
+
+        private static void ProcesObradeZavrsen(object sender, EventArgs e)
         {
             Console.WriteLine("Dočekali kraj procesa.");
-            return true;
         }
     }
 }

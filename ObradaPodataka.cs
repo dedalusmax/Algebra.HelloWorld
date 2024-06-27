@@ -7,19 +7,22 @@ namespace HelloWorld
 
     internal class ObradaPodataka
     {
-        public event ProcesZavrsenDelegate ProcesZavrsen;
+        public event EventHandler<byte> FazaZavrsena;
+        public event EventHandler ProcesZavrsen;
+        //public event ProcesZavrsenDelegate ProcesZavrsen;
 
         public bool PokreniProces()
         {
-            for (int i = 1; i <= 10; i++)
+            for (byte i = 1; i <= 10; i++)
             {
-                Console.WriteLine("Proces u tijeku, faza {0}", i);
+                //Console.WriteLine("Proces u tijeku, faza {0}", i);
                 Thread.Sleep(1000);
+                FazaZavrsena.Invoke(this, i);
             }
 
-            Console.WriteLine("Proces završen uspješno!");
+            //Console.WriteLine("Proces završen uspješno!");
 
-            ProcesZavrsen.Invoke();
+            ProcesZavrsen?.Invoke(this, new EventArgs());
 
             return true;
         }
