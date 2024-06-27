@@ -1,5 +1,4 @@
-﻿using HelloWorld;
-using System;
+﻿using System;
 
 namespace Algebra.HelloWorld
 {
@@ -7,42 +6,36 @@ namespace Algebra.HelloWorld
     {
         static void Main(string[] args)
         {
-            // ObradaPodataka();
+            int strikni = 10;
+            //Nullable<int> slobodni = null;
+            int? slobodni = null;
 
-            var osoba = new Osoba();
-            osoba.TekuciRacun.Uplati(120.00);
-            osoba.ZiroRacun.Isplati(50.00);
+            strikni = slobodni ?? 25;
 
-            osoba.Dispose();
-        }
+            slobodni += 2;
 
-        private static void ObradaPodataka()
-        {
-            var obrada = new ObradaPodataka();
+            //strikni += slobodni.Value;
 
-            obrada.FazaZavrsena += FazaObradeZavrsena;
-            obrada.ProcesZavrsen += ProcesObradeZavrsen;
+            strikni += slobodni.GetValueOrDefault();
 
-            obrada.PokreniProces();
+            if (!slobodni.HasValue)
+            {
+                Console.WriteLine("varijabla je null");
+            }
 
-            // tralala
+            Console.WriteLine(strikni);
+            Console.WriteLine(slobodni);
 
             Console.ReadKey();
-
-            obrada.FazaZavrsena -= FazaObradeZavrsena;
-            obrada.ProcesZavrsen -= ProcesObradeZavrsen;
-
-            obrada.PokreniRucnoFazu(12);
         }
 
-        private static void FazaObradeZavrsena(object sender, byte brojFaze)
+        private class Osoba
         {
-            Console.WriteLine("Proces u tijeku, faza {0} završena.", brojFaze);
-        }
+            public int Sifra { get; set; }
 
-        private static void ProcesObradeZavrsen(object sender, EventArgs e)
-        {
-            Console.WriteLine("Dočekali kraj procesa.");
+            public string Ime { get; set; }
+
+            public Nullable<int> OIB { get; set; }
         }
     }
 }
