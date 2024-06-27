@@ -11,6 +11,7 @@ namespace Algebra.HelloWorld
 
             var osoba = new Osoba();
             osoba.TekuciRacun.Uplati(120.00);
+            osoba.ZiroRacun.Isplati(50.00);
         }
 
         private static void ObradaPodataka()
