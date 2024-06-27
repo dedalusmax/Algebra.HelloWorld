@@ -17,6 +17,11 @@ namespace Algebra.HelloWorld
             // tralala
 
             Console.ReadKey();
+
+            obrada.FazaZavrsena -= FazaObradeZavrsena;
+            obrada.ProcesZavrsen -= ProcesObradeZavrsen;
+
+            obrada.PokreniRucnoFazu(12);
         }
 
         private static void FazaObradeZavrsena(object sender, byte brojFaze)

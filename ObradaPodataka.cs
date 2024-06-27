@@ -26,5 +26,11 @@ namespace HelloWorld
 
             return true;
         }
+
+        public void PokreniRucnoFazu(byte faza)
+        {
+            Thread.Sleep(1000);
+            FazaZavrsena?.Invoke(this, faza);
+        }
     }
 }
