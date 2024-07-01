@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Algebra.HelloWorld.Program;
 
 namespace Algebra.HelloWorld
 {
@@ -11,6 +10,20 @@ namespace Algebra.HelloWorld
         {
             //PrimjerListe();
             //PrimjerOsobe();
+
+            try
+            {
+                var sadrzaj = DatotecniServis.OtvoriDatoteku("pero.txt");
+            }
+            catch (DatotecniException ex) 
+            {
+                Console.ForegroundColor = ex.Boja;
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.ResetColor();   
+            }
 
             Console.Write("Kraj.");
             Console.ReadKey();
