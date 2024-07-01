@@ -9,6 +9,15 @@ namespace Algebra.HelloWorld
     {
         static void Main(string[] args)
         {
+            //PrimjerListe();
+            //PrimjerOsobe();
+
+            Console.Write("Kraj.");
+            Console.ReadKey();
+        }
+
+        private static void PrimjerListe()
+        {
             List<string> lista = new List<string>
             {
                 "Pero",
@@ -35,9 +44,10 @@ namespace Algebra.HelloWorld
             {
                 Console.ResetColor();
             }
+        }
 
-            // klase
-
+        private static void PrimjerOsobe()
+        {
             var osoba = new Osoba("Pero");
 
             try
@@ -53,48 +63,6 @@ namespace Algebra.HelloWorld
             {
                 Console.ResetColor();
             }
-
-            Console.Write("Kraj.");
-            Console.ReadKey();
-        }
-
-        public class Osoba
-        {
-            public int? OIB { get; set; }
-
-            public string Ime { get; set; }
-
-            public Racun TekuciRacun { get; set; }
-
-            public Osoba(string ime)
-            {
-                Ime = ime;
-            }
-
-            public Osoba(string ime, int oib)
-            {
-                Ime = ime;
-                OIB = oib;
-            }
-
-            public void PostaviStanjeRacuna()
-            {
-                try
-                {
-                    this.TekuciRacun.Stanje = 0;
-                }
-                catch (NullReferenceException ex)
-                {
-                    throw new ApplicationException("Inicijalizacija računa nije uspjela.", ex);
-                }
-            }
-        }
-
-        public class Racun
-        {
-            public string Naziv { get; set; }
-
-            public double Stanje { get; set; }
         }
     }
 }
