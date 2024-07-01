@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static Algebra.HelloWorld.Program;
 
 namespace Algebra.HelloWorld
 {
@@ -15,42 +16,55 @@ namespace Algebra.HelloWorld
                 "Marko"
             };
 
-            var rezultat = lista.FindAll(x => x.Equals("Pero"));
-
-            string imena = string.Empty;
-            //lista.ForEach(x => { imena += x; });
-            //lista.ForEach((x) => imena += x);
-            lista.ForEach(x => imena += x);
-
-            List<Osoba> osobe = new List<Osoba>
+            try
             {
-                new Osoba("Pero"),
-                new Osoba("Iva"),
-                new Osoba("Marko"),
-            };
+                Console.WriteLine(lista[3]);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(lista.LastOrDefault());
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.ResetColor();
+            }
 
-            var imena2 = osobe.Select(x => x.Ime).ToList();
+            // klase
 
-            Action akcija = () => Console.WriteLine("Akcija izvršena!");
-            akcija.Invoke();
+            var osoba = new Osoba("Pero");
 
-            // Func<string, bool> funkcija = (x) => true;
-            Func<string, int, Osoba> kreirajOsobu = (ime, oib) => { return new Osoba(ime, oib); };
+            try
+            {
+                osoba.PostaviStanjeRacuna();
+            }
+            catch (ApplicationException ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.ResetColor();
+            }
 
-            kreirajOsobu("Pero", 123);
-
-            Func<string, int, Osoba> delegat = delegate (string s, int x) { 
-                return new Osoba(s); 
-            };
-
+            Console.Write("Kraj.");
             Console.ReadKey();
         }
 
-        public class Osoba 
+        public class Osoba
         {
             public int? OIB { get; set; }
 
             public string Ime { get; set; }
+
+            public Racun TekuciRacun { get; set; }
 
             public Osoba(string ime)
             {
@@ -62,6 +76,25 @@ namespace Algebra.HelloWorld
                 Ime = ime;
                 OIB = oib;
             }
+
+            public void PostaviStanjeRacuna()
+            {
+                try
+                {
+                    this.TekuciRacun.Stanje = 0;
+                }
+                catch (NullReferenceException ex)
+                {
+                    throw new ApplicationException("Inicijalizacija računa nije uspjela.", ex);
+                }
+            }
+        }
+
+        public class Racun
+        {
+            public string Naziv { get; set; }
+
+            public double Stanje { get; set; }
         }
     }
 }
