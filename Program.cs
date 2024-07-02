@@ -1,125 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using HelloWorld;
+using System;
 
 namespace Algebra.HelloWorld
 {
-    public delegate void HelloWorldDelegate(string message);
-
     internal class Program
     {
         static void Main(string[] args)
         {
-            // MetodaZaAnonimneTipove();
-            // IspisiPozdrav();
-            // Predikati();
+            var tekst = "Pero Perić";
+            tekst.Print();
+            tekst.Print(ConsoleColor.Green);
 
-            var jabuka = new Jabuka();
-            jabuka.JabukaProdana += new EventHandler((o, e) => 
-            {
-                Console.WriteLine("Jabuka je prodana.");
-            });
-
-            jabuka.Kupi();
-
-            jabuka.JabukaProdana -= new EventHandler((o, e) => { });
+            ProsirivanjeRacuna();
 
             Console.ReadKey();
         }
 
-        private static void Predikati()
+        private static void ProsirivanjeRacuna()
         {
-            List<string> imena = new List<string>
+            var racun = new Racun
             {
-                "Pero", "Ana", "Ivana", "Marija", "Luka", "Marko"
+                Naziv = "Tekući račun"
             };
 
-            Func<string, bool> uvjet = (string x) => { return x.StartsWith("M"); };
+            racun.Uplata(50.00);
+            Console.WriteLine(racun.Stanje);
 
-            var potraga = imena.Find(x => x.StartsWith("M"));
-            // var skracenice = imena.Select(x => x.Substring(0, 3));
-            var skracenice = imena.Select(uvjet);
-        }
+            // tweak-anje isplate
+            racun.Uplata(-20.00);
+            Console.WriteLine(racun.Stanje);
 
-        private static void LokalnaMetoda()
-        {
-            void delegat(string message)
-            {
-                delegat(message);
-                Console.WriteLine($"Hello! " + message);
-            }
-        }
+            racun.Isplata(30.00);
+            Console.WriteLine(racun.Stanje);
 
-        private static void IspisiPozdrav()
-        {
-            string ime = "Pero";
-
-            HelloWorldDelegate delegat = delegate (string message)
-            {
-                Console.WriteLine($"Hello {ime}! " + message);
-            };
-
-            delegat.Invoke("hello!");
-            delegat("pozdrav!");
-
-            IspisiTekstove(delegat, "Ana");
-        }
-
-        private static void IspisiTekstove(HelloWorldDelegate delegat, string poruka)
-        {
-            delegat.Invoke(poruka);
-        }
-
-        private static void MetodaZaAnonimneTipove()
-        {
-            var ime = "Pero";
-            var id = 10;
-
-            var polaznik = new { Id = 1, Ime = "Marko" };
-
-            // polaznik.Id = 200;
-            Console.WriteLine($"Id: {polaznik.Id}, Ime: {polaznik.Ime}");
-
-            var osoba = new
-            {
-                Sifra = 100,
-                Ime = "Pero",
-                Prezime = "Perić",
-                GodinaRodjenja = 2000,
-                Racun = new { Sifra = 1, Tip = "Tekući", Stanje = 100.00F }
-            };
-
-            PozivnaMetoda(osoba);
-
-            var rezultat = PovratnaMetoda();
-        }
-    
-        internal static void PozivnaMetoda(object osoba)
-        {
-        }
-
-        protected static object PovratnaMetoda()
-        {
-            var polaznici = new[]
-{
-                new { Id = 1, Ime = "Marko" },
-                new { Id = 2, Ime = "Ana" }
-            };
-
-            var zadnji = polaznici.LastOrDefault();
-            Console.WriteLine(zadnji.Ime);
-
-            return zadnji;
+            racun.Naziv.Print(ConsoleColor.Red);
         }
     }
 
-    internal class Jabuka
+    public static class BezopasnaKlasa
     {
-        public event EventHandler JabukaProdana;
-
-        public void Kupi()
+        public static void Isplata(this Racun racun, double iznos)
         {
-            JabukaProdana?.Invoke(this, EventArgs.Empty);
+            racun.Stanje -= iznos;
+        }
+
+        public static void Print(this string value, ConsoleColor color = ConsoleColor.White)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(value);
+            Console.ResetColor();
         }
     }
 }
