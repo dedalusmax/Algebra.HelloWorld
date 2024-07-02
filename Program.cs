@@ -1,4 +1,5 @@
 ﻿using HelloWorld;
+using HelloWorld.Extensions;
 using System;
 
 namespace Algebra.HelloWorld
@@ -34,21 +35,6 @@ namespace Algebra.HelloWorld
             Console.WriteLine(racun.Stanje);
 
             racun.Naziv.Print(ConsoleColor.Red);
-        }
-    }
-
-    public static class BezopasnaKlasa
-    {
-        public static void Isplata(this Racun racun, double iznos)
-        {
-            racun.Stanje -= iznos;
-        }
-
-        public static void Print(this string value, ConsoleColor color = ConsoleColor.White)
-        {
-            Console.ForegroundColor = color;
-            Console.WriteLine(value);
-            Console.ResetColor();
         }
     }
 }
