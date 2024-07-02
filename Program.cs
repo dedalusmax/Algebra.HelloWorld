@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Algebra.HelloWorld
@@ -10,9 +11,43 @@ namespace Algebra.HelloWorld
         static void Main(string[] args)
         {
             // MetodaZaAnonimneTipove();
-            IspisiPozdrav();
+            // IspisiPozdrav();
+            // Predikati();
+
+            var jabuka = new Jabuka();
+            jabuka.JabukaProdana += new EventHandler((o, e) => 
+            {
+                Console.WriteLine("Jabuka je prodana.");
+            });
+
+            jabuka.Kupi();
+
+            jabuka.JabukaProdana -= new EventHandler((o, e) => { });
 
             Console.ReadKey();
+        }
+
+        private static void Predikati()
+        {
+            List<string> imena = new List<string>
+            {
+                "Pero", "Ana", "Ivana", "Marija", "Luka", "Marko"
+            };
+
+            Func<string, bool> uvjet = (string x) => { return x.StartsWith("M"); };
+
+            var potraga = imena.Find(x => x.StartsWith("M"));
+            // var skracenice = imena.Select(x => x.Substring(0, 3));
+            var skracenice = imena.Select(uvjet);
+        }
+
+        private static void LokalnaMetoda()
+        {
+            void delegat(string message)
+            {
+                delegat(message);
+                Console.WriteLine($"Hello! " + message);
+            }
         }
 
         private static void IspisiPozdrav()
@@ -75,6 +110,16 @@ namespace Algebra.HelloWorld
             Console.WriteLine(zadnji.Ime);
 
             return zadnji;
+        }
+    }
+
+    internal class Jabuka
+    {
+        public event EventHandler JabukaProdana;
+
+        public void Kupi()
+        {
+            JabukaProdana?.Invoke(this, EventArgs.Empty);
         }
     }
 }
