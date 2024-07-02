@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Algebra.HelloWorld
@@ -8,74 +7,51 @@ namespace Algebra.HelloWorld
     {
         static void Main(string[] args)
         {
-            //PrimjerListe();
-            //PrimjerOsobe();
+            Metoda();
 
-            try
-            {
-                var sadrzaj = DatotecniServis.OtvoriDatoteku("pero.txt");
-            }
-            catch (DatotecniException ex) 
-            {
-                Console.ForegroundColor = ex.Boja;
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                Console.ResetColor();   
-            }
-
-            Console.Write("Kraj.");
             Console.ReadKey();
         }
 
-        private static void PrimjerListe()
+        private static void Metoda()
         {
-            List<string> lista = new List<string>
+            var ime = "Pero";
+            var id = 10;
+
+            var polaznik = new { Id = 1, Ime = "Marko" };
+
+            // polaznik.Id = 200;
+            Console.WriteLine($"Id: {polaznik.Id}, Ime: {polaznik.Ime}");
+
+            var osoba = new
             {
-                "Pero",
-                "Iva",
-                "Marko"
+                Sifra = 100,
+                Ime = "Pero",
+                Prezime = "Perić",
+                GodinaRodjenja = 2000,
+                Racun = new { Sifra = 1, Tip = "Tekući", Stanje = 100.00F }
             };
 
-            try
-            {
-                Console.WriteLine(lista[3]);
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(lista.LastOrDefault());
-            }
-            catch (Exception ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                Console.ResetColor();
-            }
+            PozivnaMetoda(osoba);
+
+            var rezultat = PovratnaMetoda();
+        }
+    
+        internal static void PozivnaMetoda(object osoba)
+        {
         }
 
-        private static void PrimjerOsobe()
+        protected static object PovratnaMetoda()
         {
-            var osoba = new Osoba("Pero");
+            var polaznici = new[]
+{
+                new { Id = 1, Ime = "Marko" },
+                new { Id = 2, Ime = "Ana" }
+            };
 
-            try
-            {
-                osoba.PostaviStanjeRacuna();
-            }
-            catch (ApplicationException ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                Console.ResetColor();
-            }
+            var zadnji = polaznici.LastOrDefault();
+            Console.WriteLine(zadnji.Ime);
+
+            return zadnji;
         }
     }
 }
