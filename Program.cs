@@ -1,55 +1,53 @@
 ﻿using HelloWorld;
-using HelloWorld.Extensions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Algebra.HelloWorld
 {
     internal class Program
     {
+        private const string FILE_PATH = "C:\\Projects\\Algebra\\Test\\example.dat";
+
         static void Main(string[] args)
         {
-            var tekst = "Pero Perić";
-            tekst.Print();
-            tekst.Print(ConsoleColor.Green);
-            
-            ProsirivanjeRacuna();
+            // strana pošiljatelja:
 
-            List<int> brojevi = new List<int>() { 1, 43, 23, 45, 56, 34, 76, 8 };
-            var slucajniBroj = brojevi.Randomize();
-
-            Console.ReadKey();
-        }
-
-        private static void ProsirivanjeRacuna()
-        {
             var racun = new Racun
             {
-                Naziv = "Tekući račun"
+                Sifra = 12345,
+                Naziv = "Tekući račun Pere Perića",
             };
 
             racun.Uplata(50.00);
-            Console.WriteLine(racun.Stanje);
 
-            // tweak-anje isplate
-            racun.Uplata(-20.00);
-            Console.WriteLine(racun.Stanje);
+            PosaljiRacun(FILE_PATH, racun);
 
-            racun.Isplata(30.00);
-            Console.WriteLine(racun.Stanje);
+            // strana primatelja:
 
-            racun.Naziv.Print(ConsoleColor.Red);
+            Racun rezultat = PrimiRacun(FILE_PATH);
+
+            rezultat.Uplata(30.00);
+
+            Console.WriteLine(racun);
         }
-    }
 
-    public static class Nebitno
-    {
-        public static int Randomize(this List<int> list)
+        private static Racun PrimiRacun(string filePath)
         {
-            Random random = new Random();
-            return random.Next(list.Count);    
+            var binaryFormatter = new BinaryFormatter();
+            var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            //var rezultat = binaryFormatter.Deserialize(fileStream) as Racun;
+            var rezultat = (Racun)binaryFormatter.Deserialize(fileStream);
+            fileStream.Close();
+            return rezultat;
+        }
+
+        private static void PosaljiRacun(string filePath, Racun racun)
+        {
+            var binaryFormatter = new BinaryFormatter();
+            var fileStream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write);
+            binaryFormatter.Serialize(fileStream, racun);
+            fileStream.Close();
         }
     }
-
 }

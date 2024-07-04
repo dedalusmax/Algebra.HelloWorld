@@ -1,6 +1,9 @@
-﻿namespace HelloWorld
+﻿using System;
+
+namespace HelloWorld
 {
-    public sealed class Racun
+    [Serializable]
+    public class Racun
     {
         public int Sifra { get; set; }
 
