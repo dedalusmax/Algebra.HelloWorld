@@ -21,11 +21,15 @@ namespace Algebra.HelloWorld
 
             racun.Uplata(50.00);
 
-            PosaljiRacun(FILE_PATH, racun);
+            // PosaljiRacun(FILE_PATH, racun);
+
+            var podatak = SpremiRacunUMemoriju(racun);
 
             // strana primatelja:
 
-            Racun rezultat = PrimiRacun(FILE_PATH);
+            // Racun rezultat = PrimiRacun(FILE_PATH);
+
+            Racun rezultat = ProcitajRacunIzMemorije(podatak);
 
             rezultat.Uplata(30.00);
 
@@ -49,5 +53,24 @@ namespace Algebra.HelloWorld
             binaryFormatter.Serialize(fileStream, racun);
             fileStream.Close();
         }
+
+        private static byte[] SpremiRacunUMemoriju(Racun racun)
+        {
+            var binaryFormatter = new BinaryFormatter();
+            var memoryStream = new MemoryStream();
+            binaryFormatter.Serialize(memoryStream, racun);
+            memoryStream.Flush();
+            return memoryStream.ToArray();
+        }
+
+        private static Racun ProcitajRacunIzMemorije(byte[] podaci)
+        {
+            var binaryFormatter = new BinaryFormatter();
+            var memoryStream = new MemoryStream(podaci);
+            var rezultat = (Racun)binaryFormatter.Deserialize(memoryStream);
+            memoryStream.Close();
+            return rezultat;
+        }
+
     }
 }
