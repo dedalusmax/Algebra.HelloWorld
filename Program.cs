@@ -1,6 +1,7 @@
 ﻿using HelloWorld;
 using System;
 using System.IO;
+using System.Runtime.Caching;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Algebra.HelloWorld
@@ -11,6 +12,8 @@ namespace Algebra.HelloWorld
 
         static void Main(string[] args)
         {
+            var cache = new MemoryCache("racuni");
+
             // strana pošiljatelja:
 
             var racun = new Racun
@@ -25,11 +28,13 @@ namespace Algebra.HelloWorld
 
             var podatak = SpremiRacunUMemoriju(racun);
 
+            cache["racun"] = podatak;
+
             // strana primatelja:
 
             // Racun rezultat = PrimiRacun(FILE_PATH);
 
-            Racun rezultat = ProcitajRacunIzMemorije(podatak);
+            Racun rezultat = ProcitajRacunIzMemorije(cache["racun"] as byte[]);
 
             rezultat.Uplata(30.00);
 
