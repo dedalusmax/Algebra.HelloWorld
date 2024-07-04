@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B7AA4503-6C29-4FB8-995D-92266805D673}</ProjectGuid>
+    <ProjectGuid>{00B45301-242E-4B22-A790-5CDB54B7F5D1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>HelloWorld</RootNamespace>
-    <AssemblyName>HelloWorld</AssemblyName>
+    <RootNamespace>Algebra.HelloWorld2</RootNamespace>
+    <AssemblyName>Algebra.HelloWorld2</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,7 +51,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Algebra.HelloWorld.Contracts\Algebra.HelloWorld.Contracts.csproj">
+    <ProjectReference Include="..\Algebra.HelloWorld.Contracts\Algebra.HelloWorld.Contracts.csproj">
       <Project>{2ec4cc8d-bef8-4a3d-8eaa-6ac106610c86}</Project>
       <Name>Algebra.HelloWorld.Contracts</Name>
     </ProjectReference>

@@ -1,4 +1,4 @@
-﻿using HelloWorld;
+﻿using HelloWorld.Contracts;
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -21,25 +21,14 @@ namespace Algebra.HelloWorld
 
             racun.Uplata(50.00);
 
+            Console.WriteLine("Spreman za slanje podataka...");
+            Console.ReadKey();
+
             PosaljiRacun(FILE_PATH, racun);
+            Console.WriteLine("Poslano!");
 
-            // strana primatelja:
-
-            Racun rezultat = PrimiRacun(FILE_PATH);
-
-            rezultat.Uplata(30.00);
-
-            Console.WriteLine(racun);
-        }
-
-        private static Racun PrimiRacun(string filePath)
-        {
-            var binaryFormatter = new BinaryFormatter();
-            var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            //var rezultat = binaryFormatter.Deserialize(fileStream) as Racun;
-            var rezultat = (Racun)binaryFormatter.Deserialize(fileStream);
-            fileStream.Close();
-            return rezultat;
+            Console.WriteLine("Čekam prijem s druge strane...");
+            Console.ReadKey();
         }
 
         private static void PosaljiRacun(string filePath, Racun racun)

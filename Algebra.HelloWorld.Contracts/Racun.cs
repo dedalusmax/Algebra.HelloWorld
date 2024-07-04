@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HelloWorld
+namespace HelloWorld.Contracts
 {
     [Serializable]
     public class Racun
