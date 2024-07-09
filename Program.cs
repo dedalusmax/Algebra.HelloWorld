@@ -1,81 +1,114 @@
 ﻿using HelloWorld;
 using System;
-using System.IO;
-using System.Runtime.Caching;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Algebra.HelloWorld
 {
     internal class Program
     {
-        private const string FILE_PATH = "C:\\Projects\\Algebra\\Test\\example.dat";
-
         static void Main(string[] args)
         {
-            var cache = new MemoryCache("racuni");
+            // StringBuilderTest();
+            // ObjectTests();
+            // CollectionsTest();
 
-            // strana pošiljatelja:
+            Console.ReadKey();
+        }
 
-            var racun = new Racun
+        private static void CollectionsTest()
+        {
+            var lista = new List<Racun>();
+            lista.Add(new Racun());
+            lista.Add(new Racun());
+            lista[lista.Count - 1] = new Racun();
+            lista.Clear();
+
+            var red = new Queue<string>(); // FIFO = first in, first out
+            red.Enqueue("Pero");
+            red.Enqueue("Marko");
+            red.Enqueue("Ana");
+            var slijedeci = red.Dequeue();
+            slijedeci = red.Dequeue();
+
+            var stog = new Stack<int>(); // LIFO = last in, first out
+            stog.Push(1);
+            stog.Push(2);
+            stog.Push(3);
+            var palacinka = stog.Pop();
+            var proviri = stog.Peek();
+
+            var tablica = new Hashtable();
+            tablica.Add(1, "Pero");
+            tablica.Add(true, "Marko");
+
+            var rijecnik = new Dictionary<int, string>();
+            rijecnik.Add(1, "Pero");
+            rijecnik.Add(2, "Marko");
+            var sadrzaj = rijecnik.Values;
+            var rezultat = rijecnik.ContainsValue("Iva");
+            var kljuc = rijecnik.ContainsKey(2);
+
+            // System.Collections.Concurrent
+        }
+
+        private static void ObjectTests()
+        {
+            var racun1 = new Racun
             {
-                Sifra = 12345,
-                Naziv = "Tekući račun Pere Perića",
+                Sifra = 100,
+                Naziv = "Tekući",
+                Stanje = 100.00
             };
 
-            racun.Uplata(50.00);
+            var racun2 = new Racun
+            {
+                Sifra = 100,
+                Naziv = "Tekući",
+                Stanje = 100.00
+            };
 
-            // PosaljiRacun(FILE_PATH, racun);
+            //var racun2 = new Racun
+            //{
+            //    Sifra = 102,
+            //    Naziv = "Žiro",
+            //    Stanje = 50.00
+            //};
 
-            var podatak = SpremiRacunUMemoriju(racun);
+            // var racun2 = racun1;
 
-            cache["racun"] = podatak;
+            var x = (racun1 == racun2);
+            var y = (racun1.Equals(racun2));
+            var z = (racun1 == racun1);
+            var tip = racun1.GetType();
+            var kod1 = racun1.GetHashCode();
+            var kod2 = racun2.GetHashCode();
 
-            // strana primatelja:
-
-            // Racun rezultat = PrimiRacun(FILE_PATH);
-
-            Racun rezultat = ProcitajRacunIzMemorije(cache["racun"] as byte[]);
-
-            rezultat.Uplata(30.00);
-
-            Console.WriteLine(racun);
+            var lista = new List<Racun>
+            {
+                racun1,
+                racun2
+            };
+            lista.Sort();
         }
 
-        private static Racun PrimiRacun(string filePath)
+        private static void StringBuilderTest()
         {
-            var binaryFormatter = new BinaryFormatter();
-            var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            //var rezultat = binaryFormatter.Deserialize(fileStream) as Racun;
-            var rezultat = (Racun)binaryFormatter.Deserialize(fileStream);
-            fileStream.Close();
-            return rezultat;
-        }
+            // 1. string builder
 
-        private static void PosaljiRacun(string filePath, Racun racun)
-        {
-            var binaryFormatter = new BinaryFormatter();
-            var fileStream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write);
-            binaryFormatter.Serialize(fileStream, racun);
-            fileStream.Close();
-        }
+            string tekst = "Pero Perić";
+            tekst += " je top zaposlenik!";
+            tekst += "\n\n\rsredina teksta.";
 
-        private static byte[] SpremiRacunUMemoriju(Racun racun)
-        {
-            var binaryFormatter = new BinaryFormatter();
-            var memoryStream = new MemoryStream();
-            binaryFormatter.Serialize(memoryStream, racun);
-            memoryStream.Flush();
-            return memoryStream.ToArray();
-        }
+            // Console.Write(tekst);
 
-        private static Racun ProcitajRacunIzMemorije(byte[] podaci)
-        {
-            var binaryFormatter = new BinaryFormatter();
-            var memoryStream = new MemoryStream(podaci);
-            var rezultat = (Racun)binaryFormatter.Deserialize(memoryStream);
-            memoryStream.Close();
-            return rezultat;
-        }
+            var builder = new StringBuilder();
+            builder.Append(tekst);
+            builder.AppendLine("još toga u liniji.");
+            builder.AppendFormat("Cijena je: {0:C}", 50.00);
 
+            Console.WriteLine(builder.ToString());
+        }
     }
 }
