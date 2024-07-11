@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Ispit.Proizvodi;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading;
 
 namespace Algebra.HelloWorld
 {
@@ -8,60 +10,36 @@ namespace Algebra.HelloWorld
     {
         static void Main(string[] args)
         {
-            List<string> lista = new List<string>
+            var predavac = new Predavac();
+
+            var polaznici = new List<Polaznik>
             {
-                "Pero",
-                "Iva",
-                "Marko"
+                new Polaznik() { ImePrezime = "Pero Perić" },
+                new Polaznik() { ImePrezime = "Iva Ivić" },
+                new Polaznik() { ImePrezime = "Marko Marković" },
+                new Polaznik() { ImePrezime = "Marta Martić" },
             };
 
-            var rezultat = lista.FindAll(x => x.Equals("Pero"));
+            polaznici.ForEach(p => p.IspitZavrsen += (polaznik) => 
+            { 
+                predavac.IspitZaprimljen(polaznik);
+            });
 
-            string imena = string.Empty;
-            //lista.ForEach(x => { imena += x; });
-            //lista.ForEach((x) => imena += x);
-            lista.ForEach(x => imena += x);
-
-            List<Osoba> osobe = new List<Osoba>
+            predavac.Ispit += (DateTime startTime) =>
             {
-                new Osoba("Pero"),
-                new Osoba("Iva"),
-                new Osoba("Marko"),
+                foreach (var polaznik in polaznici)
+                {
+                    polaznik.OdgovoriNaPitanja(DateTime.Now);
+                }
             };
 
-            var imena2 = osobe.Select(x => x.Ime).ToList();
+            predavac.ZvoniZvono();
 
-            Action akcija = () => Console.WriteLine("Akcija izvršena!");
-            akcija.Invoke();
+            Thread.Sleep(1000);
 
-            // Func<string, bool> funkcija = (x) => true;
-            Func<string, int, Osoba> kreirajOsobu = (ime, oib) => { return new Osoba(ime, oib); };
-
-            kreirajOsobu("Pero", 123);
-
-            Func<string, int, Osoba> delegat = delegate (string s, int x) { 
-                return new Osoba(s); 
-            };
+            polaznici[2].PredajOdgovoreNaPitanja();
 
             Console.ReadKey();
-        }
-
-        public class Osoba 
-        {
-            public int? OIB { get; set; }
-
-            public string Ime { get; set; }
-
-            public Osoba(string ime)
-            {
-                Ime = ime;
-            }
-
-            public Osoba(string ime, int oib)
-            {
-                Ime = ime;
-                OIB = oib;
-            }
         }
     }
 }
