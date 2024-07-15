@@ -49,11 +49,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Ispit.Proizvodi\Ispit.Proizvodi.csproj">
-      <Project>{9757f73b-ccf0-40d8-9b95-d34919e3f473}</Project>
-      <Name>Ispit.Proizvodi</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
