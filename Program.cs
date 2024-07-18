@@ -19,8 +19,8 @@ namespace Algebra.HelloWorld
             var query2 = gradovi
                 .Where(grad => grad.StartsWith("S"));
 
-            // query.GetEnumerator().Current;
-            // query.GetEnumerator().MoveNext();
+            var e = query.GetEnumerator().Current;
+            query.GetEnumerator().MoveNext();
 
             //foreach (var izbor in query)
             //{
@@ -86,6 +86,26 @@ namespace Algebra.HelloWorld
             var lista = from artikl in artikli
                         group artikl by artikl.Vrsta into rezultat
                         select rezultat;
+
+            // UPDATE
+
+            var y = from artikl in artikli
+                    select artikl;
+
+            var nema = y.ElementAtOrDefault(10);
+
+            var provjera = rezultirajuciUpit.SequenceEqual(osnovniUpit);
+
+            if (y.Any(_ => _.Naziv == "Vino"))
+            {
+
+            }
+
+            if (y.All(_ => _.Naziv == "Vino"))
+            {
+
+            }
+
 
             Console.ReadKey();
         }
