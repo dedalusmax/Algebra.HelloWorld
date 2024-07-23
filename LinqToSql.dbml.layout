@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LinqToSql">
+  <DataContextMoniker Name="/LinqToSqlDataContext" />
+  <nestedChildShapes>
+    <classShape Id="aa445933-9c44-488f-ad54-d82dd027aa1b" absoluteBounds="4.5, 1.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LinqToSqlDataContext/Zaposlenik" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d38c8f46-417c-4b14-864e-fa97c5756a09" absoluteBounds="4.515, 2.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a348d74-b423-48fc-95eb-eb9ab7f696b0" absoluteBounds="2, 4.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/LinqToSqlDataContext/Odjel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="10466136-5df7-4cfc-ba01-2f6445663c2f" absoluteBounds="2.015, 5.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 4.625); (3 : 2.73159912109375); (4.5 : 2.73159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LinqToSqlDataContext/Odjel/Odjel_Zaposlenik" />
+      <nodes>
+        <classShapeMoniker Id="8a348d74-b423-48fc-95eb-eb9ab7f696b0" />
+        <classShapeMoniker Id="aa445933-9c44-488f-ad54-d82dd027aa1b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

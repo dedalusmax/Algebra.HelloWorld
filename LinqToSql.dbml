@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="linq_to_sql" Class="LinqToSqlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\mssqllocaldb;Initial Catalog=linq_to_sql;Integrated Security=True" SettingsObjectName="HelloWorld.Properties.Settings" SettingsPropertyName="linq_to_sqlConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Zaposlenik" Member="Zaposleniks">
+    <Type Name="Zaposlenik">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImePrezime" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefon" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="Adresa" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="OdjelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Odjel_Zaposlenik" Member="Odjel" ThisKey="OdjelID" OtherKey="ID" Type="Odjel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Odjel" Member="Odjels">
+    <Type Name="Odjel">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Naziv" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Association Name="Odjel_Zaposlenik" Member="Zaposleniks" ThisKey="ID" OtherKey="OdjelID" Type="Zaposlenik" />
+    </Type>
+  </Table>
+</Database>
