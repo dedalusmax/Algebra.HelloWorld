@@ -19,17 +19,23 @@ namespace Algebra.HelloWorld
             5.	Program za brojanje ukupnog broja slova, znamenki i posebnih znakova u nizu
             */
 
+            // Zadatak 1
+
             int x = 1;
             while (x < 10)
             {
                 x++;
             }
 
+            // Zadatak 2
+
             int y = 10;
             while (y > 0)
             {
                 y--;
             }
+
+            // Zadatak 3a
 
             int tajniBroj = 4;
             int input;
@@ -48,6 +54,8 @@ namespace Algebra.HelloWorld
                 }
             }
 
+            // Zadatak 3b
+
             var endNumber = 10;
             while (true)
             {
@@ -59,6 +67,8 @@ namespace Algebra.HelloWorld
                 }
                 endNumber++;
             }
+
+            // Zadatak 4
 
             int ocijena;
             while (true)
@@ -77,6 +87,8 @@ namespace Algebra.HelloWorld
                 }
 
             }
+
+            // Zadatak 5
 
             string niz;
             int slova = 0;
@@ -113,9 +125,7 @@ namespace Algebra.HelloWorld
             5.	Prosjek ocjena za uneseni broj predmeta
             */
 
-            // 1
-
-            //zadatak 1
+            // Zadatak 1
 
             Console.WriteLine("Zadatak 1");
             string[] niz1 = new string[3] { "Ana", "voli", "Milovana" };
@@ -145,8 +155,7 @@ namespace Algebra.HelloWorld
 
             Console.WriteLine(recenica);
 
-
-            // 2
+            // Zadatak 2
 
             string[] arr = { "how", "what", "why", "when", "who" };
             int count = 0;
@@ -162,7 +171,7 @@ namespace Algebra.HelloWorld
             }
             Console.WriteLine(count);
 
-            // 3 
+            // Zadatak 3
 
             const string userName = "admin", password = "1234";
             bool corr = false;
@@ -193,7 +202,7 @@ namespace Algebra.HelloWorld
                 Console.WriteLine("No more attempts allowed.\nTASK 3 DONE\n");
             }
 
-            // Zadatak 4:
+            // Zadatak 4
 
             for (byte i = 1; i <= 17; i++)
             {
@@ -205,7 +214,7 @@ namespace Algebra.HelloWorld
                 }
             }
 
-            // 5
+            // Zadatak 5
 
             Console.Write("Broj predmeta: ");
             byte brojPredmeta = Convert.ToByte(Console.ReadLine());
@@ -227,6 +236,84 @@ namespace Algebra.HelloWorld
 
             Console.Write($"Prosjek: {prosjek:F2}");
             Console.ReadKey();
+
+            /*
+            TURA 3:
+            1.	Petlja koja uspoređuje nizove životinja
+            2.	Prikažite obrazac poput piramide s brojevima uvećanima za 1
+            3.	Poredaj unešeni niz u rastućem redoslijedu
+            4.	Ispis neparnih brojeva koji su veći od 1, a manji od 20
+            5.	Ispis brojeva iz intervala [1, 300] koji su djeljivi s 5
+             */
+
+            // Zadatak 1
+
+            Console.WriteLine("1.Zadatak");
+            string[] zivotinje1 = new string[5] { "pas", "macka", "zec", "lisica", "vuk" };
+            string[] zivotinje2 = new string[5] { "lav", "riba", "zec", "tigar", "zmija" };
+
+            foreach (string z in zivotinje1)
+            {
+
+                foreach (string z2 in zivotinje2)
+                {
+                    if (z.Equals(z2))
+                    {
+                        Console.WriteLine($"{z} se nalazi u oba niza.");
+                    }
+                }
+
+            }
+
+            // Zadatak 2
+
+            int arrs = 5;
+            int n = 1;
+
+            for (int i = 1; i <= arrs; i++)
+            {
+
+                for (int space = 0; space <= arrs - i; space++)
+                {
+                    Console.Write(" ");
+                }
+
+
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write(n + " ");
+                    n++;
+                }
+
+                Console.WriteLine();
+            }
+
+            // Zadatak 4
+
+            var brojevi = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+            int neparni = 0;
+
+
+            for (int i = 0; i < brojevi.Length; i++)
+            {
+
+                if (brojevi[i] % 2 == 1)
+                {
+                    Console.WriteLine($"Broj {brojevi[i]} je neparan ");
+                    neparni++;
+
+                }
+
+                else
+                {
+                    Console.WriteLine($"Broj {brojevi[i]} nije neparan ");
+                    continue;
+                }
+
+            }
+            Console.WriteLine($"Ukupno neparnih brojeva {neparni}");
+            Console.ReadKey();
         }
     }
 }
+
